@@ -5,6 +5,7 @@
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
+    "@material-ui/styles": "^4.11.4",
     "@mui/material": "^5.4.0",
     "@rematch/core": "^2.2.0",
     "@testing-library/jest-dom": "^5.14.1",
