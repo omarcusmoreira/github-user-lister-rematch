@@ -9,32 +9,36 @@ import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
+interface SearchedUserCardProps {
+  name?: string;
+  login?: string;
+  repos?: number;
+  avatar?: string;
+}
 
-const card = (
-  <React.Fragment>
-    <CardHeader
-      avatar={
-        <Avatar
-          alt="Marcus Moreira"
-          src="https://github.com/omarcusmoreira.png"
-        />
-      }
-      title="Marcus Moreira"
-      subheader="#omarcusmoreira"
-      action={
-        <IconButton aria-label="add to favorites" onClick={() => {}}>
-          <FavoriteIcon />
-        </IconButton>
-      }
-    />
-    <CardContent>17 repositórios</CardContent>
-  </React.Fragment>
-);
-
-export default function SearchedUserCard() {
+const SearchedUserCard: React.FC<SearchedUserCardProps> = ({
+  name,
+  login,
+  repos,
+  avatar,
+}) => {
   return (
     <Box sx={{ maxWidth: 375 }}>
-      <Card variant="outlined">{card}</Card>
+      <Card variant="outlined">
+        <CardHeader
+          avatar={<Avatar alt={name} src={avatar} />}
+          title={name}
+          subheader={login}
+          action={
+            <IconButton aria-label="add to favorites" onClick={() => {}}>
+              <FavoriteIcon />
+            </IconButton>
+          }
+        />
+        <CardContent>{repos} repositórios</CardContent>
+      </Card>
     </Box>
   );
-}
+};
+
+export default SearchedUserCard;
