@@ -7,7 +7,7 @@ import { useSelector } from "react-redux";
 
 export const SearchedUser = () => {
   useEffect(() => {
-    dispatch.User.getUserData();
+    dispatch.User.getUserData("");
   }, []);
 
   const { name, login, public_repos, avatar_url } = useSelector(
@@ -19,7 +19,7 @@ export const SearchedUser = () => {
       <Typography variant="h6" mb={2}>
         Resultado da Busca:
       </Typography>
-      {login !== "" ? (
+      {login !== undefined ? (
         <SearchedUserCard
           name={name}
           login={login}

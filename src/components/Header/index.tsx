@@ -8,6 +8,7 @@ import Container from "@mui/material/Container";
 import InputBase from "@mui/material/InputBase";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import SearchIcon from "@mui/icons-material/Search";
+import { dispatch } from "../../config/store/store";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -52,6 +53,17 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Header() {
+  const [searchedUser, setSearchedUser] = React.useState("");
+  console.log(searchedUser);
+
+  // React.useEffect(() => {
+  //   dispatch.User.getUserData();
+  // }, []);
+
+  // const { name, login, public_repos, avatar_url } = useSelector(
+  //   (state: RootState) => state.User.data
+  // );
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ backgroundColor: "#2e3440" }}>
@@ -75,6 +87,16 @@ export default function Header() {
               <StyledInputBase
                 placeholder="Buscar…"
                 inputProps={{ "aria-label": "search" }}
+                value={searchedUser}
+                onChange={(e) => setSearchedUser(e.target.value)}
+                onKeyDown={
+                  (e) => {
+                    if (e.key === "Enter") {
+                      dispatch.User.getUserData(searchedUser);
+                    }
+                  }
+                  // e.keyCode === 13 ?  : () => {}
+                }
               />
             </Search>
           </Toolbar>

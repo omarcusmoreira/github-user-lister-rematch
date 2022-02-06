@@ -11,18 +11,18 @@ type UserState = {
 export const User = createModel<RootModel>()({
   state: {
     data: {
-      name: "",
-      avatar_url: "",
-      login: "",
-      public_repos: 0,
+      // name: "",
+      // avatar_url: "",
+      // login: "",
+      // public_repos: 0,
     },
   } as UserState,
   reducers: {
     loadUser: (state, payload: UserData | any) => payload,
   },
   effects: (dispatch) => ({
-    getUserData: async () => {
-      const user = await api.get<UserData>("/nearghale");
+    async getUserData(searchedUser) {
+      const user = await api.get<UserData>(`/${searchedUser}`);
       dispatch.User.loadUser(user);
     },
   }),

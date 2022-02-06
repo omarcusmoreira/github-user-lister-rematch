@@ -28,9 +28,14 @@ const SearchedUserCard: React.FC<SearchedUserCardProps> = ({
         <CardHeader
           avatar={<Avatar alt={name} src={avatar} />}
           title={name}
-          subheader={login}
+          subheader={`#${login}`}
           action={
-            <IconButton aria-label="add to favorites" onClick={() => {}}>
+            <IconButton
+              aria-label="add to favorites"
+              onClick={() => {
+                console.log("Is Favourited!");
+              }}
+            >
               <FavoriteIcon />
             </IconButton>
           }
