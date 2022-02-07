@@ -9,11 +9,16 @@ import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
+import { dispatch, RootState } from "../../../config/store/store";
+import { UserData } from "../../../config/interfaces/User";
+
 interface SearchedUserCardProps {
   name?: string;
   login?: string;
   repos?: number;
   avatar?: string;
+  bio?: string;
+  user: UserData;
 }
 
 const SearchedUserCard: React.FC<SearchedUserCardProps> = ({
@@ -21,6 +26,7 @@ const SearchedUserCard: React.FC<SearchedUserCardProps> = ({
   login,
   repos,
   avatar,
+  user,
 }) => {
   return (
     <Box sx={{ maxWidth: 375 }}>
@@ -33,7 +39,7 @@ const SearchedUserCard: React.FC<SearchedUserCardProps> = ({
             <IconButton
               aria-label="add to favorites"
               onClick={() => {
-                console.log("Is Favourited!");
+                dispatch.FavedUsers.loadFavedUsers(user);
               }}
             >
               <FavoriteIcon />
