@@ -10,38 +10,45 @@ import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 
-const card = (
-  <React.Fragment>
-    <CardHeader
-      avatar={
-        <Avatar
-          alt="Marcus Moreira"
-          src="https://github.com/omarcusmoreira.png"
-        />
-      }
-      title="Marcus Moreira"
-      subheader="#omarcusmoreira"
-    />
-    <CardContent>
-      <Typography variant="body2">
-        well meaning and kindly.
-        <br />
-        {'"a benevolent smile"'}
-      </Typography>
-    </CardContent>
-    <CardActions>
-      <Button size="small">17 repositórios</Button>
-      <IconButton aria-label="add to favorites">
-        <FavoriteIcon />
-      </IconButton>
-    </CardActions>
-  </React.Fragment>
-);
+interface FavoritesCardProps {
+  name?: String;
+  login?: String;
+  bio?: String;
+  public_repos?: Number;
+  isFavorited?: boolean;
+}
 
-export default function FavoritesCard() {
+const FavoritesCard: React.FC<FavoritesCardProps> = ({
+  name,
+  login,
+  bio,
+  public_repos,
+}) => {
   return (
     <Box sx={{ maxWidth: 375 }}>
-      <Card variant="outlined">{card}</Card>
+      <Card variant="outlined">
+        <CardHeader
+          avatar={
+            <Avatar
+              alt="Marcus Moreira"
+              src="https://github.com/omarcusmoreira.png"
+            />
+          }
+          title={name}
+          subheader={login}
+        />
+        <CardContent>
+          <Typography variant="body2">Lorem Ipsum dolor sit amet</Typography>
+        </CardContent>
+        <CardActions>
+          <Button size="small">{public_repos} repositórios</Button>
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
+          </IconButton>
+        </CardActions>
+      </Card>
     </Box>
   );
-}
+};
+
+export default FavoritesCard;

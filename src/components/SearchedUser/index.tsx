@@ -10,21 +10,20 @@ export const SearchedUser = () => {
     dispatch.User.getUserData("");
   }, []);
 
-  const { name, login, public_repos, avatar_url } = useSelector(
-    (state: RootState) => state.User.data
-  );
+  const user = useSelector((state: RootState) => state.User.data);
 
   return (
     <Container>
       <Typography variant="h6" mb={2}>
         Resultado da Busca:
       </Typography>
-      {login !== undefined ? (
+      {user.login !== undefined ? (
         <SearchedUserCard
-          name={name}
-          login={login}
-          repos={public_repos}
-          avatar={avatar_url}
+          name={user.name}
+          login={user.login}
+          repos={user.public_repos}
+          avatar={user.avatar_url}
+          user={user}
         />
       ) : (
         <Typography variant="subtitle1">Nenhum resultado</Typography>
