@@ -28,12 +28,6 @@ const SearchedUserCard: React.FC<SearchedUserCardProps> = ({
   avatar,
   user,
 }) => {
-  const newUser: UserData = {
-    name,
-    login,
-    public_repos: repos,
-    avatar_url: avatar,
-  };
   return (
     <Box sx={{ maxWidth: 375 }}>
       <Card variant="outlined">
