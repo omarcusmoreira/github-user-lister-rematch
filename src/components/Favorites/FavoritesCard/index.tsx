@@ -26,7 +26,7 @@ const FavoritesCard: React.FC<FavoritesCardProps> = ({
 }) => {
   return (
     <Box sx={{ maxWidth: 375 }}>
-      <Card variant="outlined">
+      <Card variant="outlined" sx={{ minHeight: 200 }}>
         <CardHeader
           avatar={
             <Avatar

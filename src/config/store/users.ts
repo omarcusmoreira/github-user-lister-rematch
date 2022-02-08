@@ -7,6 +7,9 @@ import { UserData } from "../interfaces/User";
 type UserState = {
   data: UserData;
 };
+type FavedUserState = {
+  data: UserData[];
+};
 
 export const User = createModel<RootModel>()({
   state: {
@@ -25,43 +28,45 @@ export const User = createModel<RootModel>()({
 });
 
 export const FavedUsers = createModel<RootModel>()({
-  state: [
-    {
-      name: "Aurora Moreira",
-      login: "aurorinhamoreira",
-      avatar: "",
-      bio: "Lorem ipsum dolor sit amet",
-      public_repos: 12,
-      isFavorited: true,
-    },
-    {
-      name: "Patricia Moreira",
-      login: "patimaria",
-      avatar: "",
-      bio: "Lorem ipsum dolor sit amet",
-      public_repos: 36,
-      isFavorited: true,
-    },
-    {
-      name: "Thiago Moreira",
-      login: "thiagovitamina",
-      bio: "Lorem ipsum dolor sit amet",
-      public_repos: 81,
-      isFavorited: true,
-    },
-    {
-      name: "Nicholas Moreira",
-      login: "nicholas.ene",
-      bio: "Lorem ipsum dolor sit amet",
-      public_repos: 76,
-      isFavorited: true,
-    },
-  ] as UserData[],
+  state: {
+    data: [
+      {
+        name: "Aurora Moreira",
+        login: "aurorinhamoreira",
+        avatar: "",
+        bio: "Lorem ipsum dolor sit amet",
+        public_repos: 12,
+        isFavorited: true,
+      },
+      {
+        name: "Patricia Moreira",
+        login: "patimaria",
+        avatar: "",
+        bio: "Lorem ipsum dolor sit amet",
+        public_repos: 36,
+        isFavorited: true,
+      },
+      {
+        name: "Thiago Moreira",
+        login: "thiagovitamina",
+        bio: "Lorem ipsum dolor sit amet",
+        public_repos: 81,
+        isFavorited: true,
+      },
+      {
+        name: "Nicholas Moreira",
+        login: "nicholas.ene",
+        bio: "Lorem ipsum dolor sit amet",
+        public_repos: 76,
+        isFavorited: true,
+      },
+    ],
+  } as FavedUserState,
 
   reducers: {
-    loadFavedUsers: (state: UserData[], payload: UserData) => ({
+    loadFavedUsers: (state: FavedUserState, payload: UserData) => ({
       ...state,
-      payload,
+      data: [...state.data, payload],
     }),
   },
 });

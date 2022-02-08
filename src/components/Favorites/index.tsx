@@ -26,7 +26,7 @@ export function Favorites() {
         Favoritos
       </Typography>
       <Grid container spacing={2}>
-        {favedUsers.map((favoritedUser) => {
+        {favedUsers.data.map((favoritedUser) => {
           return (
             <Grid item xs={4}>
               <FavoritesCard
