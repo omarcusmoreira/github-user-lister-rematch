@@ -5,6 +5,8 @@
 This project allows user to search for a specific username on Github using Github Public Api (https://api.github.com/users/) and displays the searched profile with some basic information. It also allows user to follow (favorite) users or unfollow (delete) users from a list.
 On the favorited user grid, user can also click on the repositories to visit searched user profil directly on Github.
 
+Project deployed at: https://github-user-lister.vercel.app/
+
 # TODO LIST:
 
   - [x] Search for specifi user on Github api; 
