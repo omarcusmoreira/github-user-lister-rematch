@@ -54,15 +54,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function Header() {
   const [searchedUser, setSearchedUser] = React.useState("");
-  console.log(searchedUser);
-
-  // React.useEffect(() => {
-  //   dispatch.User.getUserData();
-  // }, []);
-
-  // const { name, login, public_repos, avatar_url } = useSelector(
-  //   (state: RootState) => state.User.data
-  // );
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -85,18 +76,15 @@ export default function Header() {
                 <SearchIcon />
               </SearchIconWrapper>
               <StyledInputBase
-                placeholder="Buscar…"
+                placeholder="Buscar usuário"
                 inputProps={{ "aria-label": "search" }}
                 value={searchedUser}
                 onChange={(e) => setSearchedUser(e.target.value)}
-                onKeyDown={
-                  (e) => {
-                    if (e.key === "Enter") {
-                      dispatch.User.getUserData(searchedUser);
-                    }
+                onKeyDown={(e) => {
+                  if (e.key === "Enter") {
+                    dispatch.User.getUserData(searchedUser);
                   }
-                  // e.keyCode === 13 ?  : () => {}
-                }
+                }}
               />
             </Search>
           </Toolbar>

@@ -39,6 +39,7 @@ export function Favorites() {
                   public_repos={favoritedUser.public_repos}
                   avatar_url={favoritedUser.avatar_url}
                   html_url={favoritedUser.html_url}
+                  bio={favoritedUser.bio}
                 />
               </Grid>
             );

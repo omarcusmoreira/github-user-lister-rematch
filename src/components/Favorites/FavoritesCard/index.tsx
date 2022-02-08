@@ -7,7 +7,7 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
-import FavoriteIcon from "@mui/icons-material/Favorite";
+import HeartBrokenIcon from "@mui/icons-material/HeartBroken";
 import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import { dispatch, RootState } from "../../../config/store/store";
 
@@ -18,6 +18,7 @@ interface FavoritesCardProps {
   public_repos?: number;
   isFavorited?: boolean;
   html_url?: string;
+  bio?: string;
 }
 
 const FavoritesCard: React.FC<FavoritesCardProps> = ({
@@ -26,17 +27,28 @@ const FavoritesCard: React.FC<FavoritesCardProps> = ({
   avatar_url,
   public_repos,
   html_url,
+  bio,
 }) => {
   return (
     <Box sx={{ maxWidth: 375 }}>
-      <Card variant="outlined" sx={{ minHeight: 200 }}>
+      <Card
+        variant="outlined"
+        sx={{
+          minHeight: 200,
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-between",
+        }}
+      >
         <CardHeader
           avatar={<Avatar alt={name} src={avatar_url} />}
           title={name}
-          subheader={login}
+          subheader={`#${login}`}
         />
         <CardContent>
-          <Typography variant="body2">Lorem Ipsum dolor sit amet</Typography>
+          <Typography variant="body2">
+            {!bio ? "Sem Biografia" : bio}
+          </Typography>
         </CardContent>
         <CardActions>
           <Button size="small" href={html_url}>
@@ -48,7 +60,7 @@ const FavoritesCard: React.FC<FavoritesCardProps> = ({
               dispatch.FavedUsers.removeFavedUser(name);
             }}
           >
-            <FavoriteIcon />
+            <HeartBrokenIcon />
           </IconButton>
         </CardActions>
       </Card>
