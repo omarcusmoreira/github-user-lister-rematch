@@ -29,44 +29,18 @@ export const User = createModel<RootModel>()({
 
 export const FavedUsers = createModel<RootModel>()({
   state: {
-    data: [
-      {
-        name: "Aurora Moreira",
-        login: "aurorinhamoreira",
-        avatar: "",
-        bio: "Lorem ipsum dolor sit amet",
-        public_repos: 12,
-        isFavorited: true,
-      },
-      {
-        name: "Patricia Moreira",
-        login: "patimaria",
-        avatar: "",
-        bio: "Lorem ipsum dolor sit amet",
-        public_repos: 36,
-        isFavorited: true,
-      },
-      {
-        name: "Thiago Moreira",
-        login: "thiagovitamina",
-        bio: "Lorem ipsum dolor sit amet",
-        public_repos: 81,
-        isFavorited: true,
-      },
-      {
-        name: "Nicholas Moreira",
-        login: "nicholas.ene",
-        bio: "Lorem ipsum dolor sit amet",
-        public_repos: 76,
-        isFavorited: true,
-      },
-    ],
+    data: [],
   } as FavedUserState,
 
   reducers: {
     loadFavedUsers: (state: FavedUserState, payload: UserData) => ({
       ...state,
       data: [...state.data, payload],
+    }),
+
+    removeFavedUser: (state: FavedUserState, name?: string) => ({
+      ...state,
+      data: state.data.filter((user) => user.name !== name),
     }),
   },
 });
