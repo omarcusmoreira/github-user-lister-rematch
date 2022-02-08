@@ -1,11 +1,11 @@
-import { Container, Grid, Typography } from "@mui/material";
-import { useState, useEffect } from "react";
-import FavoritesCard from "./FavoritesCard";
-import { UserData } from "../../config/interfaces/User";
-import { dispatch, RootState } from "../../config/store/store";
 import { useSelector } from "react-redux";
+import { RootState } from "../../config/store/store";
+
+import FavoritesCard from "./FavoritesCard";
+
 import Box from "@mui/material/Box";
 import searchImg from "../../assets/search2.svg";
+import { Container, Grid, Typography } from "@mui/material";
 
 export function Favorites() {
   const favedUsers = useSelector((state: RootState) => state.FavedUsers);

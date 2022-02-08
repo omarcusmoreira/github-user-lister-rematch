@@ -1,15 +1,15 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
+import { dispatch } from "../../../config/store/store";
 import CardHeader from "@mui/material/CardHeader";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
+import Box from "@mui/material/Box";
+import Card from "@mui/material/Card";
 import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import HeartBrokenIcon from "@mui/icons-material/HeartBroken";
-import IconButton, { IconButtonProps } from "@mui/material/IconButton";
-import { dispatch, RootState } from "../../../config/store/store";
 
 interface FavoritesCardProps {
   name?: string;

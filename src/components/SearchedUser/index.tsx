@@ -1,11 +1,11 @@
-import { Container, Typography } from "@mui/material";
-import SearchedUserCard from "./SearchedUserCard";
-import React, { useEffect, useState, useRef, KeyboardEvent } from "react";
-import { dispatch, RootState } from "../../config/store/store";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
-
+import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
+import { dispatch, RootState } from "../../config/store/store";
+
+import SearchedUserCard from "./SearchedUserCard";
+
+import Box from "@mui/material/Box";
+import { Container, Typography } from "@mui/material";
 
 export const SearchedUser = () => {
   useEffect(() => {

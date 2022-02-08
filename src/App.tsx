@@ -1,11 +1,11 @@
 import React from "react";
 import "./global.css";
 import Header from "./components/Header";
-import { SearchedUser } from "./components/SearchedUser";
-import { Favorites } from "./components/Favorites";
-import { Container, Grid, Divider } from "@mui/material";
-import { Provider } from "react-redux";
 import { store } from "./config/store/store";
+import { Provider } from "react-redux";
+import { Favorites } from "./components/Favorites";
+import { SearchedUser } from "./components/SearchedUser";
+import { Container, Grid, Divider } from "@mui/material";
 
 function App() {
   console.log(store);

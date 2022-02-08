@@ -1,14 +1,14 @@
 import * as React from "react";
-import { styled, alpha } from "@mui/material/styles";
-import AppBar from "@mui/material/AppBar";
+import { dispatch } from "../../config/store/store";
 import Box from "@mui/material/Box";
+import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Container from "@mui/material/Container";
 import InputBase from "@mui/material/InputBase";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import SearchIcon from "@mui/icons-material/Search";
-import { dispatch } from "../../config/store/store";
+import { styled, alpha } from "@mui/material/styles";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",

@@ -1,17 +1,14 @@
 import * as React from "react";
+import { UserData } from "../../../config/interfaces/User";
+import { dispatch } from "../../../config/store/store";
+
 import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
 import Avatar from "@mui/material/Avatar";
-import Typography from "@mui/material/Typography";
+import IconButton from "@mui/material/IconButton";
+import CardHeader from "@mui/material/CardHeader";
+import CardContent from "@mui/material/CardContent";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import IconButton, { IconButtonProps } from "@mui/material/IconButton";
-import { dispatch, RootState } from "../../../config/store/store";
-import { UserData } from "../../../config/interfaces/User";
-
 interface SearchedUserCardProps {
   name?: string;
   login?: string;
